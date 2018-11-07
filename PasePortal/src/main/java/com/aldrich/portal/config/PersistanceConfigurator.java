@@ -28,11 +28,18 @@ public class PersistanceConfigurator
 	public DataSource dataSource()
 	{
 		DriverManagerDataSource ds = new DriverManagerDataSource();        
-		ds.setDriverClassName("com.mysql.jdbc.Driver");
+		ds.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		ds.setUrl("jdbc:mysql://localhost:3306/pase");
 		ds.setUsername("root");
 		ds.setPassword("sa123");        
 		return ds;
+		
+		/*DriverManagerDataSource ds = new DriverManagerDataSource();        
+		ds.setDriverClassName("net.sourceforge.jtds.jdbc.Driver");
+		ds.setUrl("jdbc:jtds:sqlserver://183.82.3.154:1433;databaseName=aldrich_leads;instanceName=MSSQLSERVER");
+		ds.setUsername("sa");
+		ds.setPassword("AcpHyd@0105");        
+		return ds;*/
 	}
 
 	@Bean(name="txManager")	

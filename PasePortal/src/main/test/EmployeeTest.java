@@ -7,6 +7,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.aldrich.portal.config.BeanConfigurator;
 import com.aldrich.portal.service.EmployeeService;
+import com.aldrich.portal.service.OfficeSpaceLinkExtraction;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=BeanConfigurator.class)
@@ -14,13 +15,13 @@ import com.aldrich.portal.service.EmployeeService;
 public class EmployeeTest 
 {
 	@Autowired
-	EmployeeService surveyEmailService;
+	OfficeSpaceLinkExtraction surveyEmailService;
 	
 	@Test
 	//@Ignore
 	public void processFeedEmailTest()
 	{
-		surveyEmailService.saveEmployee();
+		surveyEmailService.getContactUrls("aldrichcap.com/");
 	}
 
 }
