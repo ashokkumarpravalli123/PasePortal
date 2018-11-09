@@ -78,7 +78,7 @@ tr:nth-child(even){background-color: #f2f2f2}
       </form>
       </div>
      <div>
-      <h2 style="color: #45a049;" >
+      <h2 style="color: #45a049;"  class="flex flex-grow cb-margin-small-horizontal cb-font-weight-bold cb-font-size-medium layout-row layout-align-start-center" >
       <b style="font-size: 15px">Funding Rounds:</b>&nbsp;&nbsp;
        <c:if test="${!empty suggest}">
       <b style="font-size: 15px">Total Funding: </b><b style="font-size: 15px">${suggest}</b>

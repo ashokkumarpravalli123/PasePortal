@@ -29,7 +29,7 @@ import com.aldrich.portal.service.CompanyCrunchbaseInfoService;
 @EnableScheduling
 public class CompanyCrunchbaseInfoServiceImpl implements CompanyCrunchbaseInfoService{
 	
-	@Autowired
+	@Autowired(required = true)
 	CompanyDetailsDAO companyDetailsDAO;
 	
 	
@@ -54,12 +54,13 @@ public FundingBO runService(String Url){
 			String crunchbaseUniqueName="";
 			
 			String companyDomain = getDomainName(Url);
+			//crunchbaseUniqueName=companyDomain.replace("", newChar);
 			
 			List<CBOrganisations> cbOrganizationsList = companyDetailsDAO.getCBOrganizationByDomain(companyDomain);
 			
 			for(CBOrganisations cBOrganisations : cbOrganizationsList)
 			{
-				crunchbaseUniqueName = cBOrganisations.getPermaLink();
+				crunchbaseUniqueName = cBOrganisations.getPermaLink().replace("/organization/", "").trim();;
 			}
 			
 			

@@ -21,25 +21,26 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import com.mongodb.Mongo;
 
 @Configuration
+
 @ComponentScan(basePackages={"com.aldrich.portal.dao"})
 public class PersistanceConfigurator
 {
 	@Bean
 	public DataSource dataSource()
 	{
-		DriverManagerDataSource ds = new DriverManagerDataSource();        
+		/*DriverManagerDataSource ds = new DriverManagerDataSource();        
 		ds.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		ds.setUrl("jdbc:mysql://localhost:3306/pase");
 		ds.setUsername("root");
 		ds.setPassword("sa123");        
-		return ds;
-		
-		/*DriverManagerDataSource ds = new DriverManagerDataSource();        
-		ds.setDriverClassName("net.sourceforge.jtds.jdbc.Driver");
-		ds.setUrl("jdbc:jtds:sqlserver://183.82.3.154:1433;databaseName=aldrich_leads;instanceName=MSSQLSERVER");
-		ds.setUsername("sa");
-		ds.setPassword("AcpHyd@0105");        
 		return ds;*/
+		
+		DriverManagerDataSource ds = new DriverManagerDataSource();        
+		ds.setDriverClassName("net.sourceforge.jtds.jdbc.Driver");
+		ds.setUrl("jdbc:jtds:sqlserver://localhost:1433;databaseName=aldrich_leads;instanceName=MSSQLSERVER");
+		ds.setUsername("sa");
+		ds.setPassword("sa123");        
+		return ds;
 	}
 
 	@Bean(name="txManager")	
